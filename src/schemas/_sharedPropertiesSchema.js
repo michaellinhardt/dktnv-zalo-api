@@ -1,6 +1,7 @@
 import * as h from '../../application/helpers'
 
 export const
+
 	username = h.schema.string(3, 24),
 	password = h.schema.string(6, 24),
 

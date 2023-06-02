@@ -6,15 +6,7 @@ export class UsersModel extends ModelSuperclass {
 		return this.getFirstWhere({ username })
 	}
 
-	async addUser (username, password) {
-		const encryptedPassword = this.h.encryption.passwordHash(password)
-
-		const userEntry = {
-			uuid: this.h.encryption.uuid(),
-			username,
-			password: encryptedPassword,
-		}
-
+	async addUser (userEntry) {
 		await this.knex().insert(userEntry)
 		return userEntry
 	}
